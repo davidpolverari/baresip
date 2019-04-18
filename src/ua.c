@@ -270,7 +270,7 @@ bool ua_isregistered(const struct ua *ua)
 }
 
 
-void ua_shutdown(struct ua *ua)
+void ua_destroy(struct ua *ua)
 {
 	if (!ua)
 		return;
@@ -1597,7 +1597,7 @@ void ua_stop_all(bool forced)
 			++ext_ref;
 		}
 
-		ua_shutdown(ua);
+		ua_destroy(ua);
 	}
 
 	if (ext_ref) {
